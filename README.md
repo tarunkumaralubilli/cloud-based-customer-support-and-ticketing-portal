@@ -284,13 +284,6 @@ Cloud-Based-Customer-Support-Ticketing-Portal
 
 ---
 
-## Clone Repository
-
-```bash
-git clone https://github.com/YOUR_USERNAME/Cloud-Based-Customer-Support-Ticketing-Portal.git
-```
-
----
 
 ## Open Project
 
