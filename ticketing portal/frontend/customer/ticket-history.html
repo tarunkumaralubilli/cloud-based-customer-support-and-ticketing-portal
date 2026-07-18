@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ticket History — SupportHub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="../assets/css/variables.css">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/components.css">
+<link rel="stylesheet" href="../assets/css/ticket.css">
+<link rel="stylesheet" href="../assets/css/track.css">
+<link rel="stylesheet" href="../assets/css/history.css">
+</head>
+<body>
+
+<div class="page-shell">
+  <div class="page-topbar">
+    <div class="container page-topbar-inner">
+      <a href="../index.html" class="brand">
+        <span class="brand-icon"><i class="fa-solid fa-headset"></i></span>
+        SupportHub
+      </a>
+      <div style="display:flex; align-items:center; gap:var(--space-4);">
+        <a href="submit-ticket.html" class="btn btn-outline"><i class="fa-solid fa-ticket"></i> New Ticket</a>
+        <div class="theme-toggle" id="themeToggle"><div class="toggle-knob">🌙</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-wrap" style="max-width: 900px;">
+    <div class="page-header">
+      <h1>Your Ticket History</h1>
+      <p>View and search all tickets you've submitted.</p>
+    </div>
+
+    <!-- Step 1: Email lookup (stand-in for real auth session, which comes with Cognito later) -->
+    <div class="card email-lookup-card" id="emailLookupCard">
+      <i class="fa-solid fa-envelope-open-text"></i>
+      <h3>Look up your tickets</h3>
+      <p class="text-secondary">Enter the email address you used when submitting your tickets.</p>
+      <div class="form-group">
+        <input type="email" id="lookupEmail" class="form-input" placeholder=" ">
+        <label>Email Address</label>
+      </div>
+      <button class="btn btn-primary" id="lookupBtn"><i class="fa-solid fa-magnifying-glass"></i> View My Tickets</button>
+    </div>
+
+    <!-- Step 2: Results (hidden until lookup) -->
+    <div id="historyContent" style="display:none;">
+
+      <div class="history-toolbar">
+        <div class="form-group">
+          <i class="fa-solid fa-magnifying-glass input-icon"></i>
+          <input type="text" id="searchInput" class="form-input has-icon" placeholder=" ">
+          <label>Search by subject or ticket ID</label>
+        </div>
+        <div class="form-group">
+          <select id="statusFilter" class="form-input">
+            <option value="all">All Statuses</option>
+            <option value="Open">Open</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Resolved">Resolved</option>
+            <option value="Closed">Closed</option>
+          </select>
+          <label>Filter by status</label>
+        </div>
+        <div class="form-group">
+          <select id="sortOrder" class="form-input">
+            <option value="newest">Newest First</option>
+            <option value="oldest">Oldest First</option>
+          </select>
+          <label>Sort</label>
+        </div>
+      </div>
+
+      <p class="results-count" id="resultsCount">0 tickets found</p>
+
+      <div class="ticket-list" id="ticketList"></div>
+
+      <div class="empty-state" id="noResultsState" style="display:none;">
+        <i class="fa-solid fa-inbox"></i>
+        <h3>No tickets found</h3>
+        <p>Try adjusting your search or filters.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/theme-toggle.js"></script>
+<script src="../assets/js/ticket-store.js"></script>
+<script src="../assets/js/ticket-history.js"></script>
+</body>
+</html>

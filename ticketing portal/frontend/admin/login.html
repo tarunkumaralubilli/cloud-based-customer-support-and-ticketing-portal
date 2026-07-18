@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Login — SupportHub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="../assets/css/variables.css">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/components.css">
+<link rel="stylesheet" href="../assets/css/auth.css">
+</head>
+<body>
+
+<div class="auth-page">
+  <div class="auth-brand-panel">
+    <a href="../index.html" class="brand">
+      <span class="brand-icon"><i class="fa-solid fa-shield-halved"></i></span>
+      SupportHub <span style="opacity:0.6; font-weight:600; font-size:var(--fs-sm)">Admin</span>
+    </a>
+
+    <div class="auth-brand-content">
+      <h2>Manage tickets. Resolve faster. Stay in control.</h2>
+      <p>Access the admin console to view analytics, assign tickets, and keep your team on top of every request.</p>
+
+      <div class="auth-feature-list">
+        <div class="auth-feature-item"><i class="fa-solid fa-check"></i> Real-time dashboard analytics</div>
+        <div class="auth-feature-item"><i class="fa-solid fa-check"></i> Assign & prioritize tickets</div>
+        <div class="auth-feature-item"><i class="fa-solid fa-check"></i> Role-based secure access</div>
+      </div>
+    </div>
+
+    <p class="auth-quote">"Restricted access — for authorized support staff only."</p>
+  </div>
+
+  <div class="auth-form-panel" style="position:relative;">
+    <div class="theme-toggle" id="themeToggle" style="position:absolute; top:24px; right:24px;">
+      <div class="toggle-knob">🌙</div>
+    </div>
+
+    <div class="auth-form-wrap">
+      <div class="auth-form-header">
+        <h1><i class="fa-solid fa-lock" style="color:var(--color-primary); font-size:var(--fs-lg); margin-right:8px;"></i>Admin Login</h1>
+        <p>Sign in with your administrator credentials</p>
+      </div>
+
+      <form id="adminLoginForm" novalidate>
+        <div class="form-group">
+          <i class="fa-solid fa-envelope input-icon"></i>
+          <input type="email" id="adminEmail" class="form-input has-icon" placeholder=" " required>
+          <label>Admin Email</label>
+          <span class="form-error">Please enter a valid email address</span>
+        </div>
+
+        <div class="form-group">
+          <i class="fa-solid fa-lock input-icon"></i>
+          <input type="password" id="adminPassword" class="form-input has-icon" placeholder=" " required minlength="8">
+          <label>Password</label>
+          <span class="form-error">Password must be at least 8 characters</span>
+        </div>
+
+        <div class="form-row-between">
+          <label class="form-check" style="margin:0">
+            <input type="checkbox"> Remember this device
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:100%" id="adminLoginBtn">
+          <i class="fa-solid fa-right-to-bracket"></i> Sign In to Console
+        </button>
+      </form>
+
+      <p class="auth-footer-link">
+        Not an admin? <a href="../customer/login.html">Go to customer login</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/theme-toggle.js"></script>
+<script src="../assets/js/admin-auth.js"></script>
+</body>
+</html>

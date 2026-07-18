@@ -1,0 +1,184 @@
+/* ==========================================================================
+   TICKET PAGE LAYOUT
+   ========================================================================== */
+.page-shell {
+  min-height: 100vh;
+  background: var(--bg-body);
+}
+
+.page-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-color);
+  padding: var(--space-4) 0;
+}
+.page-topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.page-wrap {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: var(--space-7) var(--space-5);
+}
+
+.page-header { margin-bottom: var(--space-6); }
+.page-header h1 { margin-bottom: var(--space-2); }
+.page-header p { color: var(--text-secondary); }
+
+/* Progress steps (visual only, single-page form) */
+.form-steps {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--space-7);
+}
+.form-step {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+.form-step .step-circle {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--bg-surface-alt);
+  border: 1.5px solid var(--border-color);
+  display: flex; align-items: center; justify-content: center;
+  font-size: var(--fs-xs);
+}
+.form-step.active { color: var(--color-primary); }
+.form-step.active .step-circle { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
+.step-line { flex: 1; height: 1.5px; background: var(--border-color); margin: 0 var(--space-3); }
+
+/* Category / priority selector cards */
+.select-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+.select-card {
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  background: var(--bg-surface);
+}
+.select-card i { font-size: var(--fs-lg); color: var(--text-muted); margin-bottom: var(--space-2); display: block; }
+.select-card span { font-size: var(--fs-sm); font-weight: 600; color: var(--text-secondary); }
+.select-card:hover { border-color: var(--color-primary); transform: translateY(-2px); }
+.select-card.selected {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+}
+.select-card.selected i, .select-card.selected span { color: var(--color-primary); }
+
+/* Priority variant colors when selected */
+.select-card.priority-low.selected { border-color: var(--color-success); background: var(--color-success-light); }
+.select-card.priority-low.selected i, .select-card.priority-low.selected span { color: var(--color-success); }
+.select-card.priority-medium.selected { border-color: var(--color-warning); background: var(--color-warning-light); }
+.select-card.priority-medium.selected i, .select-card.priority-medium.selected span { color: var(--color-warning); }
+.select-card.priority-high.selected { border-color: var(--color-danger); background: var(--color-danger-light); }
+.select-card.priority-high.selected i, .select-card.priority-high.selected span { color: var(--color-danger); }
+
+/* File upload dropzone */
+.dropzone {
+  border: 2px dashed var(--border-color);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  margin-bottom: var(--space-5);
+}
+.dropzone:hover, .dropzone.drag-over {
+  border-color: var(--color-primary);
+  background: var(--color-primary-light);
+}
+.dropzone i { font-size: var(--fs-2xl); color: var(--color-primary); margin-bottom: var(--space-3); display: block; }
+.dropzone p { color: var(--text-secondary); font-size: var(--fs-sm); }
+.dropzone span { color: var(--text-muted); font-size: var(--fs-xs); }
+
+.file-preview-list { margin-top: var(--space-4); display: flex; flex-direction: column; gap: var(--space-2); }
+.file-preview-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  background: var(--bg-surface-alt);
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-sm);
+}
+.file-preview-item i:first-child { color: var(--color-primary); }
+.file-preview-item .file-name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.file-preview-item .remove-file { color: var(--color-danger); cursor: pointer; background: none; border: none; }
+
+/* Character counter */
+.char-counter {
+  text-align: right;
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  margin-top: -18px;
+  margin-bottom: var(--space-5);
+}
+
+/* Success modal (post-submission) */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(4px);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 2000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-base);
+}
+.modal-overlay.show { opacity: 1; pointer-events: auto; }
+.modal-box {
+  background: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-7);
+  max-width: 440px;
+  width: 90%;
+  text-align: center;
+  transform: scale(0.9);
+  transition: transform var(--transition-base);
+  box-shadow: var(--shadow-lg);
+}
+.modal-overlay.show .modal-box { transform: scale(1); }
+.modal-success-icon {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  background: var(--color-success-light);
+  color: var(--color-success);
+  font-size: var(--fs-2xl);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto var(--space-5);
+}
+.ticket-id-display {
+  background: var(--bg-surface-alt);
+  border: 1.5px dashed var(--color-primary);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  font-family: var(--font-heading);
+  font-size: var(--fs-xl);
+  font-weight: 800;
+  color: var(--color-primary);
+  margin: var(--space-5) 0;
+  letter-spacing: 1px;
+}
+.modal-actions { display: flex; gap: var(--space-3); margin-top: var(--space-5); }
+.modal-actions .btn { flex: 1; }
+
+@media (max-width: 600px) {
+  .select-grid { grid-template-columns: repeat(2, 1fr); }
+  .form-step span.step-label { display: none; }
+}

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SupportHub — Cloud-Based Customer Support & Ticketing Portal</title>
+
+<!-- Fonts & Icons -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- Design System -->
+<link rel="stylesheet" href="assets/css/variables.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/home.css">
+</head>
+<body>
+
+<!-- ============================ NAVBAR ============================ -->
+<header class="navbar" id="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-icon"><i class="fa-solid fa-headset"></i></span>
+      SupportHub
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#features">Features</a>
+      <a href="#stats">Why Us</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="navbar-actions">
+      <div class="theme-toggle" id="themeToggle">
+        <div class="toggle-knob">🌙</div>
+      </div>
+      <a href="customer/login.html" class="btn btn-outline">Log In</a>
+      <a href="customer/register.html" class="btn btn-primary">Get Started</a>
+      <a href="admin/login.html" class="btn btn-outline" style="padding: 6px 14px; font-size: var(--fs-xs);" title="Admin Login">
+  <i class="fa-solid fa-shield-halved"></i>
+</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============================ HERO ============================ -->
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-content fade-in-up in-view">
+      <span class="eyebrow"><i class="fa-solid fa-bolt"></i> Serverless & Built on AWS</span>
+      <h1>Support your customers, <span class="text-gradient">effortlessly.</span></h1>
+      <p class="hero-subtitle">
+        A modern ticketing portal that helps your team track, manage, and resolve
+        customer issues faster — powered by a fully serverless AWS architecture.
+      </p>
+      <div class="hero-cta">
+        <a href="customer/submit-ticket.html" class="btn btn-primary btn-lg">
+          <i class="fa-solid fa-ticket"></i> Submit a Ticket
+        </a>
+        <a href="customer/track-ticket.html" class="btn btn-outline btn-lg">
+          <i class="fa-solid fa-magnifying-glass"></i> Track Ticket
+        </a>
+      </div>
+      <div class="hero-trust">
+        <i class="fa-solid fa-shield-halved"></i> Secure • Encrypted • 24/7 Available
+      </div>
+    </div>
+
+    <div class="hero-visual fade-in-up in-view">
+      <div class="floating-card card card-glass card-1">
+        <div class="stat-card">
+          <div class="icon-wrap" style="background:var(--color-success-light); color:var(--color-success)">
+            <i class="fa-solid fa-check"></i>
+          </div>
+          <div>
+            <div class="stat-value">98%</div>
+            <div class="stat-label">Resolution Rate</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="floating-card card card-glass card-2">
+        <span class="badge badge-open">Open</span>
+        <p class="mock-ticket-title">Login issue on mobile app</p>
+        <p class="text-muted" style="font-size:var(--fs-xs)">Ticket #TKT-2026-0142</p>
+      </div>
+
+      <div class="hero-visual-bg"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FEATURES ============================ -->
+<section class="section" id="features">
+  <div class="container">
+    <div class="section-header fade-in-up">
+      <span class="eyebrow">Features</span>
+      <h2>Everything you need to manage support</h2>
+      <p class="text-secondary">Built for teams who care about response time and customer happiness.</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="card card-hover fade-in-up">
+        <div class="feature-icon" style="background:var(--color-primary-light); color:var(--color-primary)">
+          <i class="fa-solid fa-ticket"></i>
+        </div>
+        <h3>Smart Ticketing</h3>
+        <p class="text-secondary">Customers submit issues in seconds with auto-generated ticket IDs and instant email confirmation.</p>
+      </div>
+
+      <div class="card card-hover fade-in-up">
+        <div class="feature-icon" style="background:var(--color-info-light); color:var(--color-info)">
+          <i class="fa-solid fa-magnifying-glass-chart"></i>
+        </div>
+        <h3>Live Tracking</h3>
+        <p class="text-secondary">Track ticket status, view comments, and see full history — no phone calls needed.</p>
+      </div>
+
+      <div class="card card-hover fade-in-up">
+        <div class="feature-icon" style="background:var(--color-warning-light); color:var(--color-warning)">
+          <i class="fa-solid fa-gauge-high"></i>
+        </div>
+        <h3>Admin Dashboard</h3>
+        <p class="text-secondary">Assign, prioritize, and resolve tickets with a real-time analytics dashboard.</p>
+      </div>
+
+      <div class="card card-hover fade-in-up">
+        <div class="feature-icon" style="background:var(--color-success-light); color:var(--color-success)">
+          <i class="fa-solid fa-cloud"></i>
+        </div>
+        <h3>Serverless & Scalable</h3>
+        <p class="text-secondary">Built on AWS Lambda, DynamoDB, and API Gateway — scales automatically, costs less.</p>
+      </div>
+
+      <div class="card card-hover fade-in-up">
+        <div class="feature-icon" style="background:var(--color-danger-light); color:var(--color-danger)">
+          <i class="fa-solid fa-lock"></i>
+        </div>
+        <h3>Secure by Design</h3>
+        <p class="text-secondary">Cognito authentication, role-based access, and encrypted data at every layer.</p>
+      </div>
+
+      <div class="card card-hover fade-in-up">
+        <div class="feature-icon" style="background:var(--color-info-light); color:var(--color-info)">
+          <i class="fa-solid fa-bell"></i>
+        </div>
+        <h3>Instant Notifications</h3>
+        <p class="text-secondary">Automated email updates via SES keep customers informed at every stage.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ STATS ============================ -->
+<section class="section stats-section" id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item fade-in-up">
+        <div class="stat-number" data-count="10000">0</div>
+        <p>Tickets Resolved</p>
+      </div>
+      <div class="stat-item fade-in-up">
+        <div class="stat-number" data-count="500">0</div>
+        <p>Companies Trust Us</p>
+      </div>
+      <div class="stat-item fade-in-up">
+        <div class="stat-number" data-count="24">0</div>
+        <p>Hour Support</p>
+      </div>
+      <div class="stat-item fade-in-up">
+        <div class="stat-number" data-count="98">0</div>
+        <p>% Satisfaction</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ TESTIMONIALS ============================ -->
+<section class="section" id="testimonials">
+  <div class="container">
+    <div class="section-header fade-in-up">
+      <span class="eyebrow">Testimonials</span>
+      <h2>Trusted by support teams everywhere</h2>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="card fade-in-up">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="testimonial-text">"Cut our average resolution time in half. The dashboard alone is worth it."</p>
+        <div class="testimonial-author">
+          <div class="avatar">AR</div>
+          <div>
+            <strong>Aditi Rao</strong>
+            <p class="text-muted" style="font-size:var(--fs-xs)">Support Lead, Nimbus Retail</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card fade-in-up">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="testimonial-text">"Setup took a day. Our customers love being able to track tickets themselves."</p>
+        <div class="testimonial-author">
+          <div class="avatar">JK</div>
+          <div>
+            <strong>James Kim</strong>
+            <p class="text-muted" style="font-size:var(--fs-xs)">CTO, Brightline SaaS</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card fade-in-up">
+        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+        <p class="testimonial-text">"Finally a ticketing tool that doesn't feel like it was built in 2010."</p>
+        <div class="testimonial-author">
+          <div class="avatar">PS</div>
+          <div>
+            <strong>Priya Sharma</strong>
+            <p class="text-muted" style="font-size:var(--fs-xs)">Ops Manager, Vertex Labs</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FAQ ============================ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-header fade-in-up">
+      <span class="eyebrow">FAQ</span>
+      <h2>Frequently asked questions</h2>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item fade-in-up">
+        <button class="faq-question">
+          How do I track my ticket status?
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Use the "Track Ticket" page and enter the Ticket ID you received via email when you submitted your request.</p>
+        </div>
+      </div>
+
+      <div class="faq-item fade-in-up">
+        <button class="faq-question">
+          Is my data secure?
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Yes — all data is encrypted in transit and at rest, with authentication managed through AWS Cognito.</p>
+        </div>
+      </div>
+
+      <div class="faq-item fade-in-up">
+        <button class="faq-question">
+          Can I attach files to a ticket?
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Yes, the ticket submission form supports file attachments stored securely in Amazon S3.</p>
+        </div>
+      </div>
+
+      <div class="faq-item fade-in-up">
+        <button class="faq-question">
+          How will I know when my ticket is resolved?
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>You'll receive an automated email notification at every status change, powered by Amazon SES.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CONTACT ============================ -->
+<section class="section contact-section" id="contact">
+  <div class="container contact-inner">
+    <div class="fade-in-up">
+      <span class="eyebrow">Contact</span>
+      <h2>Still have questions?</h2>
+      <p class="text-secondary">Reach out and our team will get back to you within one business day.</p>
+
+      <div class="contact-info">
+        <div class="contact-info-item">
+          <i class="fa-solid fa-envelope"></i> support@supporthub.io
+        </div>
+        <div class="contact-info-item">
+          <i class="fa-solid fa-phone"></i> +1 (555) 012-3456
+        </div>
+      </div>
+    </div>
+
+    <form class="card contact-form fade-in-up" id="contactForm">
+      <div class="form-group">
+        <input type="text" class="form-input" placeholder=" " required>
+        <label>Full Name</label>
+      </div>
+      <div class="form-group">
+        <input type="email" class="form-input" placeholder=" " required>
+        <label>Email Address</label>
+      </div>
+      <div class="form-group">
+        <textarea class="form-input" style="height:120px; padding-top:1.5rem;" placeholder=" " required></textarea>
+        <label>Message</label>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%">
+        <i class="fa-solid fa-paper-plane"></i> Send Message
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="index.html" class="brand">
+        <span class="brand-icon"><i class="fa-solid fa-headset"></i></span>
+        SupportHub
+      </a>
+      <p class="text-muted">Cloud-based customer support, built for modern teams.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Product</h4>
+      <a href="#features">Features</a>
+      <a href="customer/submit-ticket.html">Submit Ticket</a>
+      <a href="customer/track-ticket.html">Track Ticket</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Account</h4>
+      <a href="customer/login.html">Log In</a>
+      <a href="customer/register.html">Register</a>
+      <a href="admin/login.html">Admin Login</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 SupportHub. Built with AWS Serverless Architecture.</p>
+  </div>
+</footer>
+
+<script src="assets/js/theme-toggle.js"></script>
+<script src="assets/js/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reports — SupportHub Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="../assets/css/variables.css">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/components.css">
+<link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body>
+
+<div class="admin-shell">
+  <aside class="admin-sidebar" id="adminSidebar">
+    <a href="dashboard.html" class="brand">
+      <span class="brand-icon"><i class="fa-solid fa-shield-halved"></i></span>
+      SupportHub
+    </a>
+    <nav class="sidebar-nav">
+      <a href="dashboard.html" class="sidebar-link"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+      <a href="tickets.html" class="sidebar-link"><i class="fa-solid fa-ticket"></i> Tickets</a>
+      <a href="customers.html" class="sidebar-link"><i class="fa-solid fa-users"></i> Customers</a>
+      <a href="analytics.html" class="sidebar-link"><i class="fa-solid fa-chart-line"></i> Analytics</a>
+      <a href="reports.html" class="sidebar-link"><i class="fa-solid fa-file-lines"></i> Reports</a>
+      <a href="settings.html" class="sidebar-link"><i class="fa-solid fa-gear"></i> Settings</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="sidebar-user">
+        <div class="avatar" id="sidebarAvatar">AU</div>
+        <div class="user-info">
+          <div class="user-name" id="sidebarUserName">Admin User</div>
+          <div class="user-role">Administrator</div>
+        </div>
+      </div>
+      <button class="sidebar-link logout-link" id="logoutBtn"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+    </div>
+  </aside>
+
+  <div class="admin-main">
+    <header class="admin-topbar">
+      <div style="display:flex; align-items:center; gap:var(--space-4);">
+        <button class="sidebar-toggle-btn" id="sidebarToggle"><i class="fa-solid fa-bars"></i></button>
+      </div>
+      <div class="topbar-actions">
+        <div class="theme-toggle" id="themeToggle"><div class="toggle-knob">🌙</div></div>
+      </div>
+    </header>
+
+    <main class="admin-content">
+      <div class="content-header">
+        <div>
+          <h1>Reports</h1>
+          <p>Export ticket data for offline analysis or record-keeping.</p>
+        </div>
+      </div>
+
+      <div class="card" style="padding: var(--space-7); text-align:center;">
+        <i class="fa-solid fa-file-csv" style="font-size:40px; color:var(--color-primary); margin-bottom:var(--space-4);"></i>
+        <h3>Export All Tickets</h3>
+        <p class="text-secondary" style="margin-bottom:var(--space-5);">Download a CSV of every ticket currently in the system.</p>
+        <button class="btn btn-primary" id="exportBtn"><i class="fa-solid fa-download"></i> Download CSV</button>
+        <p class="text-muted" style="font-size:var(--fs-xs); margin-top:var(--space-4);" id="exportStatus"></p>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="../assets/js/theme-toggle.js"></script>
+<script src="../assets/js/admin-guard.js"></script>
+<script src="../assets/js/admin-shell.js"></script>
+<script src="../assets/js/ticket-store.js"></script>
+<script src="../assets/js/reports-admin.js"></script>
+</body>
+</html>

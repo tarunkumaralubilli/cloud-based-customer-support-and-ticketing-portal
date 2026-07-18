@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Submit a Ticket — SupportHub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="../assets/css/variables.css">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/components.css">
+<link rel="stylesheet" href="../assets/css/ticket.css">
+</head>
+<body>
+
+<div class="page-shell">
+  <!-- Top bar -->
+  <div class="page-topbar">
+    <div class="container page-topbar-inner">
+      <a href="../index.html" class="brand">
+        <span class="brand-icon"><i class="fa-solid fa-headset"></i></span>
+        SupportHub
+      </a>
+      <div style="display:flex; align-items:center; gap:var(--space-4);">
+        <a href="track-ticket.html" class="btn btn-outline"><i class="fa-solid fa-magnifying-glass"></i> Track Ticket</a>
+        <div class="theme-toggle" id="themeToggle"><div class="toggle-knob">🌙</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-wrap">
+    <div class="page-header">
+      <h1>Submit a Support Ticket</h1>
+      <p>Fill out the form below and our team will get back to you as soon as possible.</p>
+    </div>
+
+    <form id="ticketForm" novalidate>
+
+      <!-- Contact Info -->
+      <h3 style="margin-bottom: var(--space-4);"><i class="fa-solid fa-user" style="color:var(--color-primary)"></i> Contact Information</h3>
+
+      <div class="form-group">
+        <i class="fa-solid fa-user input-icon"></i>
+        <input type="text" id="custName" class="form-input has-icon" placeholder=" " required>
+        <label>Full Name</label>
+        <span class="form-error">Please enter your name</span>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap: var(--space-4);">
+        <div class="form-group">
+          <i class="fa-solid fa-envelope input-icon"></i>
+          <input type="email" id="custEmail" class="form-input has-icon" placeholder=" " required>
+          <label>Email Address</label>
+          <span class="form-error">Please enter a valid email</span>
+        </div>
+        <div class="form-group">
+          <i class="fa-solid fa-phone input-icon"></i>
+          <input type="tel" id="custPhone" class="form-input has-icon" placeholder=" " required>
+          <label>Phone Number</label>
+          <span class="form-error">Please enter a valid phone number</span>
+        </div>
+      </div>
+
+      <!-- Category -->
+      <h3 style="margin: var(--space-6) 0 var(--space-4);"><i class="fa-solid fa-tag" style="color:var(--color-primary)"></i> Category</h3>
+      <input type="hidden" id="category" required>
+      <div class="select-grid" id="categoryGrid">
+        <div class="select-card" data-value="Technical"><i class="fa-solid fa-laptop-code"></i><span>Technical</span></div>
+        <div class="select-card" data-value="Billing"><i class="fa-solid fa-file-invoice-dollar"></i><span>Billing</span></div>
+        <div class="select-card" data-value="Account"><i class="fa-solid fa-user-gear"></i><span>Account</span></div>
+        <div class="select-card" data-value="Feature Request"><i class="fa-solid fa-lightbulb"></i><span>Feature Request</span></div>
+        <div class="select-card" data-value="Other"><i class="fa-solid fa-ellipsis"></i><span>Other</span></div>
+      </div>
+      <span class="form-error" id="categoryError" style="display:none; margin-bottom:var(--space-4);">Please select a category</span>
+
+      <!-- Priority -->
+      <h3 style="margin: var(--space-6) 0 var(--space-4);"><i class="fa-solid fa-gauge-high" style="color:var(--color-primary)"></i> Priority</h3>
+      <input type="hidden" id="priority" required>
+      <div class="select-grid" id="priorityGrid">
+        <div class="select-card priority-low" data-value="Low"><i class="fa-solid fa-arrow-down"></i><span>Low</span></div>
+        <div class="select-card priority-medium" data-value="Medium"><i class="fa-solid fa-minus"></i><span>Medium</span></div>
+        <div class="select-card priority-high" data-value="High"><i class="fa-solid fa-arrow-up"></i><span>High</span></div>
+      </div>
+      <span class="form-error" id="priorityError" style="display:none; margin-bottom:var(--space-4);">Please select a priority</span>
+
+      <!-- Details -->
+      <h3 style="margin: var(--space-6) 0 var(--space-4);"><i class="fa-solid fa-file-lines" style="color:var(--color-primary)"></i> Issue Details</h3>
+
+      <div class="form-group">
+        <input type="text" id="subject" class="form-input" placeholder=" " required maxlength="100">
+        <label>Subject</label>
+        <span class="form-error">Please enter a subject</span>
+      </div>
+
+      <div class="form-group">
+        <textarea id="description" class="form-input" style="height:150px; padding-top:1.5rem;" placeholder=" " required maxlength="1000"></textarea>
+        <label>Description</label>
+        <span class="form-error">Please describe your issue (min 20 characters)</span>
+      </div>
+      <div class="char-counter"><span id="charCount">0</span>/1000</div>
+
+      <!-- Attachment -->
+      <h3 style="margin: var(--space-6) 0 var(--space-4);"><i class="fa-solid fa-paperclip" style="color:var(--color-primary)"></i> Attachment (Optional)</h3>
+
+      <div class="dropzone" id="dropzone">
+        <i class="fa-solid fa-cloud-arrow-up"></i>
+        <p><strong>Click to upload</strong> or drag and drop</p>
+        <span>PNG, JPG, PDF up to 5MB</span>
+        <input type="file" id="fileInput" hidden accept=".png,.jpg,.jpeg,.pdf">
+      </div>
+      <div class="file-preview-list" id="filePreviewList"></div>
+
+      <button type="submit" class="btn btn-primary btn-lg" style="width:100%; margin-top: var(--space-4);" id="submitBtn">
+        <i class="fa-solid fa-paper-plane"></i> Submit Ticket
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- Success Modal -->
+<div class="modal-overlay" id="successModal">
+  <div class="modal-box">
+    <div class="modal-success-icon"><i class="fa-solid fa-check"></i></div>
+    <h2>Ticket Submitted!</h2>
+    <p class="text-secondary">Your ticket has been received. Save this ID to track its progress.</p>
+    <div class="ticket-id-display" id="generatedTicketId">TKT-2026-0000</div>
+    <p class="text-muted" style="font-size:var(--fs-sm)">A confirmation email has been sent to your inbox.</p>
+    <div class="modal-actions">
+      <a href="track-ticket.html" class="btn btn-outline" id="trackNowBtn">Track Ticket</a>
+      <a href="../index.html" class="btn btn-primary">Back Home</a>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/theme-toggle.js"></script>
+<script src="../assets/js/ticket-store.js"></script>
+<script src="../assets/js/submit-ticket.js"></script>
+</body>
+</html>

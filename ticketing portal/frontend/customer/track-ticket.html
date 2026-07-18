@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Track Ticket — SupportHub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="../assets/css/variables.css">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/components.css">
+<link rel="stylesheet" href="../assets/css/ticket.css">
+<link rel="stylesheet" href="../assets/css/track.css">
+</head>
+<body>
+
+<div class="page-shell">
+  <div class="page-topbar">
+    <div class="container page-topbar-inner">
+      <a href="../index.html" class="brand">
+        <span class="brand-icon"><i class="fa-solid fa-headset"></i></span>
+        SupportHub
+      </a>
+      <div style="display:flex; align-items:center; gap:var(--space-4);">
+        <a href="submit-ticket.html" class="btn btn-outline"><i class="fa-solid fa-ticket"></i> New Ticket</a>
+        <div class="theme-toggle" id="themeToggle"><div class="toggle-knob">🌙</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-wrap">
+    <div class="page-header">
+      <h1>Track Your Ticket</h1>
+      <p>Enter your Ticket ID below to view its current status and history.</p>
+    </div>
+
+    <div class="track-search-card">
+      <div class="form-group">
+        <i class="fa-solid fa-hashtag input-icon"></i>
+        <input type="text" id="ticketIdInput" class="form-input has-icon" placeholder=" ">
+        <label>Enter Ticket ID (e.g. TKT-2026-0142)</label>
+      </div>
+      <button class="btn btn-primary" id="searchBtn">
+        <i class="fa-solid fa-magnifying-glass"></i> Search
+      </button>
+    </div>
+
+    <!-- Empty / initial state -->
+    <div class="empty-state" id="emptyState">
+      <i class="fa-solid fa-ticket"></i>
+      <h3>No ticket searched yet</h3>
+      <p>Enter your Ticket ID above to see its status and details.</p>
+    </div>
+
+    <!-- Not found state -->
+    <div class="empty-state" id="notFoundState" style="display:none;">
+      <i class="fa-solid fa-circle-exclamation" style="color:var(--color-danger)"></i>
+      <h3>Ticket not found</h3>
+      <p>Please double-check the Ticket ID and try again.</p>
+    </div>
+
+    <!-- Result -->
+    <div class="ticket-result" id="ticketResult">
+      <div class="card">
+        <div class="ticket-result-header">
+          <div>
+            <div class="ticket-id-tag" id="resultTicketId">TKT-2026-0000</div>
+            <p class="text-muted" style="font-size:var(--fs-sm)" id="resultSubject">Subject line here</p>
+          </div>
+          <div class="ticket-badges">
+            <span class="badge" id="resultStatusBadge">Open</span>
+            <span class="badge" id="resultPriorityBadge">Medium</span>
+          </div>
+        </div>
+
+        <div class="ticket-meta-grid">
+          <div class="meta-item">
+            <div class="meta-label">Customer</div>
+            <div class="meta-value" id="metaCustomer">—</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">Category</div>
+            <div class="meta-value" id="metaCategory">—</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">Created On</div>
+            <div class="meta-value" id="metaCreated">—</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">Last Updated</div>
+            <div class="meta-value" id="metaUpdated">—</div>
+          </div>
+        </div>
+
+        <h3 style="margin-bottom: var(--space-3);">Description</h3>
+        <div class="ticket-description-box" id="metaDescription">—</div>
+
+        <h3 style="margin-bottom: var(--space-4);">Status Timeline</h3>
+        <div class="timeline" id="statusTimeline"></div>
+
+        <h3 style="margin-bottom: var(--space-2);">Comments</h3>
+        <div id="commentsList"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/theme-toggle.js"></script>
+<script src="../assets/js/ticket-store.js"></script>
+<script src="../assets/js/track-ticket.js"></script>
+</body>
+</html>

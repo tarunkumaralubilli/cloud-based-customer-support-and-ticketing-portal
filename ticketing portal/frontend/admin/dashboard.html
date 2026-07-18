@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — SupportHub Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="../assets/css/variables.css">
+<link rel="stylesheet" href="../assets/css/base.css">
+<link rel="stylesheet" href="../assets/css/components.css">
+<link rel="stylesheet" href="../assets/css/admin.css">
+<link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+<body>
+
+<div class="admin-shell">
+  <!-- SIDEBAR -->
+  <aside class="admin-sidebar" id="adminSidebar">
+    <a href="dashboard.html" class="brand">
+      <span class="brand-icon"><i class="fa-solid fa-shield-halved"></i></span>
+      SupportHub
+    </a>
+
+    <nav class="sidebar-nav">
+      <a href="dashboard.html" class="sidebar-link active"><i class="fa-solid fa-gauge-high"></i> Dashboard</a>
+      <a href="tickets.html" class="sidebar-link"><i class="fa-solid fa-ticket"></i> Tickets</a>
+      <a href="customers.html" class="sidebar-link"><i class="fa-solid fa-users"></i> Customers</a>
+      <a href="analytics.html" class="sidebar-link"><i class="fa-solid fa-chart-line"></i> Analytics</a>
+      <a href="reports.html" class="sidebar-link"><i class="fa-solid fa-file-lines"></i> Reports</a>
+      <a href="settings.html" class="sidebar-link"><i class="fa-solid fa-gear"></i> Settings</a>
+    </nav>
+
+   <div class="sidebar-footer">
+  <div class="sidebar-user" id="sidebarUserToggle">
+    <div class="avatar" id="sidebarAvatar">AU</div>
+    <div class="user-info">
+      <div class="user-name" id="sidebarUserName">Admin User</div>
+      <div class="user-role">Administrator</div>
+    </div>
+
+    <div class="profile-popover" id="profilePopover">
+      <div class="profile-popover-header">
+        <div class="avatar" id="popoverAvatar">AU</div>
+        <div>
+          <div class="p-name" id="popoverName">Admin User</div>
+          <div class="p-role">Administrator</div>
+        </div>
+      </div>
+      <div class="profile-popover-detail"><span>Email</span><span id="popoverEmail">—</span></div>
+      <div class="profile-popover-detail"><span>Logged in</span><span id="popoverLoginTime">—</span></div>
+      <div class="profile-popover-actions">
+        <a href="settings.html"><i class="fa-solid fa-gear"></i> Account Settings</a>
+        <button id="popoverLogoutBtn" class="danger"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+      </div>
+    </div>
+  </div>
+</div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="admin-main">
+    <header class="admin-topbar">
+      <div style="display:flex; align-items:center; gap:var(--space-4);">
+        <button class="sidebar-toggle-btn" id="sidebarToggle"><i class="fa-solid fa-bars"></i></button>
+        <div class="topbar-search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" placeholder="Search tickets, customers...">
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <button class="topbar-icon-btn"><i class="fa-solid fa-message"></i></button>
+        <button class="topbar-icon-btn"><i class="fa-solid fa-bell"></i><span class="notif-dot"></span></button>
+        <div class="theme-toggle" id="themeToggle"><div class="toggle-knob">🌙</div></div>
+      </div>
+    </header>
+
+    <main class="admin-content">
+      <div class="content-header">
+        <div>
+          <h1>Welcome back 👋</h1>
+          <p>Here's what's happening with your support tickets today.</p>
+        </div>
+        <div class="date-badge"><i class="fa-solid fa-calendar"></i> <span id="todayDate"></span></div>
+      </div>
+
+      <!-- Stat Cards -->
+      <div class="stats-cards-grid">
+        <div class="card stat-card-dash">
+          <div class="icon-wrap" style="background:var(--color-primary-light); color:var(--color-primary)">
+            <i class="fa-solid fa-ticket"></i>
+          </div>
+          <div>
+            <div class="stat-value" id="statTotal">0</div>
+            <div class="stat-label">Total Tickets</div>
+          </div>
+        </div>
+
+        <div class="card stat-card-dash">
+          <div class="icon-wrap" style="background:var(--color-info-light); color:var(--color-info)">
+            <i class="fa-solid fa-envelope-open"></i>
+          </div>
+          <div>
+            <div class="stat-value" id="statOpen">0</div>
+            <div class="stat-label">Open</div>
+          </div>
+        </div>
+
+        <div class="card stat-card-dash">
+          <div class="icon-wrap" style="background:var(--color-warning-light); color:var(--color-warning)">
+            <i class="fa-solid fa-spinner"></i>
+          </div>
+          <div>
+            <div class="stat-value" id="statProgress">0</div>
+            <div class="stat-label">In Progress</div>
+          </div>
+        </div>
+
+        <div class="card stat-card-dash">
+          <div class="icon-wrap" style="background:var(--color-success-light); color:var(--color-success)">
+            <i class="fa-solid fa-check"></i>
+          </div>
+          <div>
+            <div class="stat-value" id="statResolved">0</div>
+            <div class="stat-label">Resolved</div>
+          </div>
+        </div>
+
+        <div class="card stat-card-dash">
+          <div class="icon-wrap" style="background:var(--bg-surface-alt); color:var(--text-muted)">
+            <i class="fa-solid fa-box-archive"></i>
+          </div>
+          <div>
+            <div class="stat-value" id="statClosed">0</div>
+            <div class="stat-label">Closed</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts -->
+      <div class="charts-grid">
+        <div class="card chart-card">
+          <h3>Tickets by Category</h3>
+          <div class="chart-wrap"><canvas id="categoryChart"></canvas></div>
+        </div>
+
+        <div class="card chart-card">
+          <h3>Tickets by Priority</h3>
+          <div class="chart-wrap"><canvas id="priorityChart"></canvas></div>
+        </div>
+      </div>
+
+      <div class="card chart-card" style="margin-top: var(--space-5);">
+        <h3>Monthly Ticket Volume</h3>
+        <div class="chart-wrap chart-wrap-wide"><canvas id="monthlyChart"></canvas></div>
+      </div>
+
+      <!-- Recent tickets preview -->
+      <div class="card" style="margin-top: var(--space-5);">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:var(--space-4);">
+          <h3>Recent Tickets</h3>
+          <a href="tickets.html" class="btn btn-outline" style="padding: 6px 16px; font-size: var(--fs-xs);">View All</a>
+        </div>
+        <div id="recentTicketsList"></div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="../assets/js/theme-toggle.js"></script>
+<script src="../assets/js/admin-guard.js"></script>
+<script src="../assets/js/admin-shell.js"></script>
+<script src="../assets/js/ticket-store.js"></script>
+<script src="../assets/js/dashboard.js"></script>
+</body>
+</html>
